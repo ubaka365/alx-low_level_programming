@@ -1,9 +1,10 @@
 #include "main.h"
+
 /**
- * largest_number - returns the largest of 3 numbers
- * @a: first integer
- * @b: second integer
- * @c: third integer
+ * largest_number - prints the largest of 3 integers
+ * @a: first number
+ * @b: second number
+ * @c: third number
  * Return: largest number
  */
 
