@@ -3,17 +3,18 @@
 #include "main.h"
 
 /**
- * read_textfile - a file that reads a text file and prints
- * @filename: variable pointer
- * @letters: size letters
- * Description: Write a function that reads a text file and prints it
- * to the POSIX standard output.
- * Return: the actual number of letters it could read and print, else return 0
- */
+* read_textfile - reads a text file and prints its contents
+* @filename: a pointer to the name of the file to read
+* @letters: the maximum number of characters to read and print
+* This function reads a text file named @filename and prints its contents
+* to the standard output. It will read up to @letters characters or until
+* the end of the file is reached, whichever comes first.
+* Return: the actual number of characters read and printed
+*/
 
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	ssize_t file, let, v;
+	ssize_t file, s, d;
 	char *text;
 
 	text = malloc(letters);
@@ -31,11 +32,11 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	let = read(file, text, letters);
+	s  = read(file, text, letters);
 
-	v = write(STDOUT_FILENO, text, let);
+	d = write(STDOUT_FILENO, text, s);
 
 	close(file);
 
-	return (v);
+	return (d);
 }
